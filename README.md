@@ -9,7 +9,8 @@
 | password              | string | null: false |
 | password_confirmation | string | null: false |
 | name                  | string | null: false |
-| birthday              | string | null: false |
+| name_kana             | string | null: false |
+| birthday              | date   | null: false |
 
 ### Association
 -has_many :items
@@ -21,15 +22,14 @@
 
 | Column                | Type    | Options                         |
 | --------------------- | ------  | ------------------------------- |
-| image                 | string  | null: false                     |
 | name                  | string  | null: false                     |
 | explanation           | text    | null: false                     |
 | details_category      | string  | null: false                     |
-| details_status        | string  | null: false                     |
-| delivery_price        | string  | null: false                     |
-| delivery_area         | string  | null: false                     |
+| details_status        | integer | null: false                     |
+| delivery_price        | integer | null: false                     |
+| delivery_area         | integer | null: false                     |
 | delivery_days         | integer | null: false                     |
-| price                 | string  | null: false                     |
+| price                 | integer | null: false                     |
 | user_id               | integer | null: false, foreign_key: true |
 | customer_id           | integer | null: false, foreign_key: true |
 
@@ -43,7 +43,7 @@
 | Column                | Type    | Options                        |
 | --------------------- | ------  | ------------------------------ |
 | post_code             | integer | null: false                    |
-| prefecture            | string  | null: false                    |
+| prefecture            | integer | null: false                    |
 | city                  | string  | null: false                    |
 | house_number          | integer | null: false                    |
 | building_name         | string  |                                |
@@ -53,7 +53,7 @@
 ### Association
 -belongs_to :user
 -has_many :items
--has_one :card
+
 
 
 ## cardsテーブル
@@ -61,13 +61,13 @@
 | Column                | Type    | Options                        |
 | --------------------- | ------  | ------------------------------ |
 | user_id               | integer | null: false, foreign_key: true |
-| customer_id           | integer | null: false, foreign_key: true |
-| card_id               | integer | null: false, foreign_key: true |
+| item_id               | integer | null: false, foreign_key: true |
+
 
 ### Association
 
 -belongs_to :user
--belongs_to :customer
+-belongs_to :item
 
 
 
