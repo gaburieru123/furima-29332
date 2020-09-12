@@ -26,7 +26,7 @@
 | --------------------- | ------  | ------------------------------- |
 | name                  | string  | null: false                     |
 | explanation           | text    | null: false                     |
-| details_category      | string  | null: false                     |
+| details_categories    | string  | null: false                     |
 | details_status        | integer | null: false                     |
 | delivery_price        | integer | null: false                     |
 | delivery_area         | integer | null: false                     |
@@ -42,12 +42,12 @@
 
 | Column                | Type    | Options                        |
 | --------------------- | ------  | ------------------------------ |
-| post_code             | integer | null: false                    |
+| post_code             | string  | null: false                    |
 | prefecture            | integer | null: false                    |
 | city                  | string  | null: false                    |
-| house_number          | integer | null: false                    |
+| house_number          | string  | null: false                    |
 | building_name         | string  |                                |
-| phone_number          | integer | null: false                    |                    
+| phone_number          | string  | null: false                    |                    
 
 ### Association
 -has_one :card
