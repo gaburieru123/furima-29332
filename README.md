@@ -17,7 +17,7 @@
 
 ### Association
 -has_many :items
--has_many :card
+-has_many :item_purchases
 
 
 ## itemsテーブル
@@ -33,9 +33,11 @@
 | delivery_days         | integer | null: false                     |
 | price                 | integer | null: false                     |
 | user_id               | integer | null: false, foreign_key: true  |
+| item_purchases        | integer | null: false                     |
 
 ### Association
 -belongs_to :user
+-has_one :item_purchases
 
 
 ## customersテーブル
@@ -47,24 +49,27 @@
 | city                  | string  | null: false                    |
 | house_number          | string  | null: false                    |
 | building_name         | string  |                                |
-| phone_number          | string  | null: false                    |                    
+| phone_number          | string  | null: false,                   |                    
+| item_purchases_id     | integer | null: false, foreign_key: true |                    
 
 ### Association
--has_one :card
+-belongs_to :item_purchases
 
 
-## cardsテーブル
+## item_purchasesテーブル
 
 | Column                | Type    | Options                        |
 | --------------------- | ------  | ------------------------------ |
 | user_id               | integer | null: false, foreign_key: true |
 | item_id               | integer | null: false, foreign_key: true |
+| customer_id           | integer | null: false, foreign_key: true |
 
 
 ### Association
 
 -belongs_to :user
--belongs_to :customer
+-belongs_to :item
+-has_one :customer
 
 
 
