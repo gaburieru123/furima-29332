@@ -33,11 +33,10 @@
 | delivery_days         | integer | null: false                     |
 | price                 | integer | null: false                     |
 | user_id               | integer | null: false, foreign_key: true  |
-| item_purchases        | integer | null: false                     |
 
 ### Association
 -belongs_to :user
--has_one :item_purchases
+-has_one :item_purchase
 
 
 ## customersテーブル
@@ -50,10 +49,10 @@
 | house_number          | string  | null: false                    |
 | building_name         | string  |                                |
 | phone_number          | string  | null: false,                   |                    
-| item_purchases_id     | integer | null: false, foreign_key: true |                    
+| item_purchase_id      | integer | null: false, foreign_key: true |                    
 
 ### Association
--belongs_to :item_purchases
+-belongs_to :item_purchase
 
 
 ## item_purchasesテーブル
@@ -62,14 +61,12 @@
 | --------------------- | ------  | ------------------------------ |
 | user_id               | integer | null: false, foreign_key: true |
 | item_id               | integer | null: false, foreign_key: true |
-| customer_id           | integer | null: false, foreign_key: true |
 
 
 ### Association
 
 -belongs_to :user
 -belongs_to :item
--has_one :customer
 
 
 
