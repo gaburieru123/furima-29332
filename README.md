@@ -5,9 +5,9 @@
 | Column                | Type   | Options     |
 | --------------------- | ------ | ----------- |
 | nickname              | string | null: false |
-| email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
+| email                 | string | null: false | deviseで設定されているため記入不要
+| password              | string | null: false | deviseで設定されているため記入不要
+| password_confirmation | string | null: false | deviseで設定されているため記入不要
 | first_name            | string | null: false |
 | last_name             | string | null: false |
 | first_name_kana       | string | null: false |
