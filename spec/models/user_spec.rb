@@ -85,12 +85,57 @@ describe User, type: :model do
           expect(@user.errors.full_messages).to include("Birthday can't be blank")
         end
       end
-
+  end
+  describe 'ユーザーログイン' do
+    context 'ログインがうまくいくとき' do
+      it "emailとpasswordが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
+      it "emailが正いとき" do
+        @user.email = "b@ne.jp"
+        expect(@user).to be_valid
+      end
+      it "passwordが正いとき" do
+        @user.password = "1aaaaa"
+        @user.password_confirmation = "1aaaaa"
+        expect(@user).to be_valid
+      end
       
+    end
 
 
-
-
+    context "ログインがうまくいくとき" do
+      it "emailが空だとログインできない" do
+        @user.email = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+      it "emailが間違っているときログインできない" do
+        @user.email = "bne.jp"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+      end
+      it "passwordが空だとログインできない" do
+        @user.password = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password can't be blank")
+      end
+      it "passwordが5文字以下のときログインできない" do
+        @user.password = "1aaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+      end
+      it "passwordが半角英字のみのときログインできない" do
+        @user.password = "aaaaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it "passwordが数字のみのときログインできない" do
+        @user.password = "111111"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+    end
   end
 end
 
