@@ -28,17 +28,19 @@
 | --------------------- | ------  | ------------------------------- |
 | name                  | string  | null: false                     |
 | explanation           | text    | null: false                     |
-| details_categories    | integer | null: false                     |
-| details_status        | integer | null: false                     |
-| delivery_price        | integer | null: false                     |
-| delivery_area         | integer | null: false                     |
-| delivery_days         | integer | null: false                     |
+| category_id           | integer | null: false                     |
+| detail_status_id      | integer | null: false                     |
+| delivery_price_id     | integer | null: false                     |
+| delivery_area_id      | integer | null: false                     |
+| delivery_day_id       | integer | null: false                     |
 | price                 | integer | null: false                     |
 | user_id               | integer | null: false, foreign_key: true  |
 
 ### Association
 -belongs_to :user
 -has_one :item_purchase
+
+
 
 
 ## customersテーブル
