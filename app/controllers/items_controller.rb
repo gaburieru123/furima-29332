@@ -3,21 +3,26 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @Item = Item.all
+    @item = Item.all
   end
 
   def new
-    @Item = Item.new
+    @item = Item.new
   end
 
   def create
-    Item.create
+    @item = Item.new(item_params)
+    if @item.save
+       redirect_to root_path
+    else
+       render :new
+    end
   end
 
   private
 
   def item_paramas
-    params.require(:item).permit(:image).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :category_id).merge(user_id: current_user.id)
   end
 
 
