@@ -2,8 +2,8 @@
 function calc_money(){
 
   const price = document.getElementById("item-price")
-  const fee = document.getElementById("add-tax-price")
-  const profit = document.getElementById("profit")
+  const price_fee = document.getElementById("add-tax-price")
+  const price_profit = document.getElementById("profit")
 
   price.addEventListener('keyup', function(){
    const value = price.value
@@ -11,10 +11,10 @@ function calc_money(){
     const commission = value * 0.1
     const profit_Money = value - commission
 
-    fee.textContent =  commission;
-    profit.textContent = profit_Money;
+    price_fee.textContent =  Math.floor(commission)
+    price_profit.textContent = Math.floor(profit_Money)
 
   })
 }
 
-window.addEventListener('load', calc_money)
+window.addEventListener('turbolinks:load', calc_money)
