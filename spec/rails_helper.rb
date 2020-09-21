@@ -31,7 +31,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-
   config.include ActionDispatch::TestProcess
 
   # factoryGirl内での呼び出し
