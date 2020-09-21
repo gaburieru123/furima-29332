@@ -9,5 +9,7 @@ FactoryBot.define do
     delivery_day_id     { '2' }
     price               { 400 }
     association :user
+   
+    image {fixture_file_upload('spec/fixtures/test.jpg')}
   end
 end
