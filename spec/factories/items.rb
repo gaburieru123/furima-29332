@@ -10,6 +10,6 @@ FactoryBot.define do
     price               { 400 }
     association :user
 
-    image { fixture_file_upload('spec/fixtures/test.jpg')}
+    image { fixture_file_upload('spec/fixtures/test.jpg') }
   end
 end
