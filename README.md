@@ -43,7 +43,7 @@
 
 
 
-## customersテーブル
+## ordersテーブル
 
 | Column                | Type    | Options                        |
 | --------------------- | ------  | ------------------------------ |
@@ -71,7 +71,7 @@
 
 -belongs_to :user
 -belongs_to :item
--has_one :customer
+-has_one :oder
 
 
 
