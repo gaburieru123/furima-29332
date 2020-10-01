@@ -20,6 +20,7 @@ class CreditAddress
   validates :delivery_area_id, numericality: { other_than: 1 } 
   # orderモデルから切り取ったバリデーション
 
+  
 
   def save
     item_purchase = ItemPurchase.create!(user_id: user_id, item_id: item_id)

@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
   before_action :move_to_session, only: [:index]#未ログイン時に購入ボタン押すとログイン画面へ移動させる。
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
+    
+    @credit_address = CreditAddress.new
   end
   
   def create  
@@ -12,6 +14,7 @@ class OrdersController < ApplicationController
       @credit_address.save
       return redirect_to root_path
     else
+      # set_itemが発動
       render 'index'
     end
   end
@@ -44,9 +47,11 @@ class OrdersController < ApplicationController
   def user_item
     
   end
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  # end
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def 
 
 
 end

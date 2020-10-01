@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :order do
+  factory :credit_address do
+    token              {"tok_abcdefghijk00000000000000000"}
     post_code          {'111-1111'}
     delivery_area_id   {'3'}
     city               {'新宿'}
