@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :item_purchases
 
+  
   with_options presence: true do
     validates :nickname
     validates :email, uniqueness: true
@@ -17,4 +18,5 @@ class User < ApplicationRecord
     validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/, message: '全角カタカナを使用してください' }
     validates :birthday
   end
+  
 end

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :orders
   end
   
-  resources :item_purchases
+  resources :item_purchases do
+    resources :orders
+  end
 
   
 end

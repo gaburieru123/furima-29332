@@ -2,5 +2,5 @@ class ItemPurchase < ApplicationRecord
 
   belongs_to :user
   belongs_to :item
-  has_one :oder
+  has_one :order
 end

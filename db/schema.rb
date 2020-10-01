@@ -33,18 +33,6 @@ ActiveRecord::Schema.define(version: 2020_09_25_112323) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "post_code", null: false
-    t.integer "prefecture", null: false
-    t.string "city", null: false
-    t.string "house_number", null: false
-    t.string "building_name"
-    t.string "phone_number", null: false
-    t.integer "item_purchase_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "item_purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
@@ -68,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_112323) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
-    t.integer "prefecture", null: false
+    t.integer "delivery_area_id", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"

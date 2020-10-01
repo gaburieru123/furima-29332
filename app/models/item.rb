@@ -21,6 +21,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_area
   belongs_to_active_hash :delivery_day
 
+  
   with_options presence: true do
     validates :name
     validates :explanation
@@ -36,4 +37,6 @@ class Item < ApplicationRecord
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
+
+
 end
