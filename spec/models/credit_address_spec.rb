@@ -18,6 +18,11 @@ describe CreditAddress, type: :model do
     end
 
     context '購入がうまくいかない時' do
+      it 'tokenが空だと保存できない'do
+        @credit_address.token = ''
+        @credit_address.valid?
+        expect(@credit_address.errors.full_messages).to include("Token can't be blank")
+      end
       it 'post_codeが空だと保存できない' do
         @credit_address.post_code = ''
         @credit_address.valid?

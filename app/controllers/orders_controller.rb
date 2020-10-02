@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :move_to_session, only: [:index] # 未ログイン時に購入ボタン押すとログイン画面へ移動させる。
-  before_action :set_item, only: [:index, :create]
-  before_action :select_item, only: [:index] # URLを直接入力して購入済み商品の購入ページへ遷移しようとすると、トップページに遷移する。出品者はURLを直接入力して購入ページに遷移しようとすると、トップページに遷移すること
+  before_action :set_item, only: [:index, :create]# URLを直接入力して購入済み商品の購入ページへ遷移しようとすると、トップページに遷移する。出品者はURLを直接入力して購入ページに遷移しようとすると、トップページに遷移すること
+
 
   def index
-    redirect_to root_path if !select_item.item_purchase.nil? || current_user.id == @item.user.id
+    redirect_to root_path if !set_item.item_purchase.nil? || current_user.id == @item.user.id
     @credit_address = CreditAddress.new
   end
 
@@ -47,7 +47,4 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def select_item
-    @item = Item.find(params[:item_id])
-  end
 end
