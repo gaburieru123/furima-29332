@@ -3,6 +3,7 @@ const pay = ()=> {
   //プラウざのカード情報取得
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);// PAY.JPテスト公開鍵
   const form = document.getElementById("charge-form");
+  if (form != null){
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     
@@ -40,11 +41,11 @@ const pay = ()=> {
   })
 
   })
-
+}
 
 }
 
 
 
 
-window.addEventListener("load", pay);
+window.addEventListener('load', pay);

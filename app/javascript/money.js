@@ -4,7 +4,8 @@ function calc_money(){
   const price = document.getElementById("item-price")
   const price_fee = document.getElementById("add-tax-price")
   const price_profit = document.getElementById("profit")
-
+  
+  if (price != null){
   price.addEventListener('keyup', function(){
    const value = price.value
 
@@ -16,5 +17,6 @@ function calc_money(){
 
   })
 }
+}
 
-window.addEventListener('turbolinks:load', calc_money)
+window.addEventListener('load', calc_money);
