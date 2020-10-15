@@ -2,15 +2,14 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
-  has_one_attached :image
-  validate :image_presence
+  has_many_attached :images
   has_one :item_purchase
 
-  def image_presence
-    if image.attached?
-      errors.add(:image, 'にはjpegまたはpngファイルを添付してください') unless image.content_type.in?(%('image/jpeg image/png'))
+  def images_presence
+    if images.attached?
+      errors.add(:images, 'にはjpegまたはpngファイルを添付してください') unless images.content_type.in?(%('image/jpeg image/png'))
     else
-      errors.add(:image, 'ファイルを添付してください')
+      errors.add(:images, 'ファイルを添付してください')
     end
   end
 
